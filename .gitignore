@@ -1,0 +1,45 @@
+# Build outputs
+build/
+*.o
+*.so
+*.a
+*.d
+
+# eBPF compiled objects
+ebpf/*.o
+ebpf/*.skel.h
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+*.egg
+.eggs/
+python/build/
+python/dist/
+
+# CMake / Make
+CMakeCache.txt
+CMakeFiles/
+Makefile.in
+cmake_install.cmake
+install_manifest.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependency / package managers
+node_modules/
+
+# Test outputs
+tests/*.out
+tests/*.log
