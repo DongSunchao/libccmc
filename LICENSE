@@ -1,0 +1,20 @@
+Copyright 2026 Sunchao Dong
+
+This repository contains code under two licenses:
+
+  Apache License 2.0  — all files EXCEPT those in ebpf/
+  GNU GPL v2.0 only   — all files in ebpf/ (kernel BPF programs must be GPL)
+
+See LICENSE-APACHE and LICENSE-GPL for the full license texts.
+
+The following files are NOT open-source and remain proprietary:
+  gateway/vllm_zeno_server.py
+  gateway/zeno_kv_connector.py
+  gateway/zeno_hook.py
+  gateway/zeno_atomic_engine.py
+  gateway/zeno_batch_engine.py
+  gateway/zeno_operator.py
+  gateway/zeno_ip_manager.py
+  gateway/kv_transport_tcp.py
+  gateway/warm_standby_ctrl.py
+  agent/
