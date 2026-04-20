@@ -27,6 +27,7 @@
  */
 
 #pragma once
+#include <stddef.h>       /* offsetof */
 #include <stdint.h>
 #include <netinet/in.h>
 #include <netinet/tcp.h>  /* struct tcp_repair_window, TCP_REPAIR_* */
@@ -154,4 +155,22 @@ int ccmc_freeze_batch(const int *fds, int n, void *states_buf, int state_size);
 
 #ifdef __cplusplus
 }
+#endif
+
+/* ── Compile-time ABI contract ────────────────────────────────────────
+ * Any struct change that shifts field offsets or alters the wire size
+ * will be caught at compile time on every platform. */
+#ifndef __cplusplus
+_Static_assert(sizeof(struct ccmc_ts_state) == 12,
+               "ccmc_ts_state must be 12 bytes");
+_Static_assert(sizeof(struct ccmc_state) == 80,
+               "ccmc_state must be 80 bytes — ABI break detected");
+_Static_assert(offsetof(struct ccmc_state, send_seq)      == 32,
+               "send_seq offset must be 32");
+_Static_assert(offsetof(struct ccmc_state, repair_window) == 40,
+               "repair_window offset must be 40");
+_Static_assert(offsetof(struct ccmc_state, ts)            == 64,
+               "ts offset must be 64");
+_Static_assert(offsetof(struct ccmc_state, token_index)   == 76,
+               "token_index offset must be 76");
 #endif
