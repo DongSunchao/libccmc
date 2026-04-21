@@ -4,6 +4,10 @@
 
 libccmc exports the kernel state of an ESTABLISHED TCP socket into an 80-byte structure using the Linux `TCP_REPAIR` mechanism, and restores it on any other host. The migrated socket is immediately live on the target — no SYN handshake, no client reconnection, no data loss.
 
+![Demo](video/zeno_migration_demo.gif)
+
+📖 [Read the full engineering deep-dive on Dev.to](https://dev.to/sunchao_dong/i-froze-a-tcp-connection-for-10-minutes-and-migrated-it-to-another-server-31i8)
+
 ```
 Source host                         Target host
 ────────────────                    ────────────────
